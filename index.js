@@ -1,10 +1,24 @@
+/*!
+ * only
+ * Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
+ * MIT Licensed
+ */
 
-module.exports = function(obj, keys){
-  obj = obj || {};
-  if ('string' == typeof keys) keys = keys.split(/ +/);
-  return keys.reduce(function(ret, key){
-    if (null == obj[key]) return ret;
-    ret[key] = obj[key];
-    return ret;
-  }, {});
-};
+function only (source, keys) {
+  source = source || {}
+
+  if (typeof keys === 'string') {
+    keys = keys.split(/ +/)
+  }
+
+  return keys.reduce(function (subset, key) {
+    if (source[key] == null) {
+      return subset
+    }
+
+    subset[key] = source[key]
+    return subset
+  }, {})
+}
+
+module.exports = only
