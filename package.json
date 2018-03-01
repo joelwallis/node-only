@@ -24,7 +24,8 @@
     "build": "browserify index.js -o only.js",
     "build:min": "browserify -t uglifyify index.js | uglifyjs > only.min.js",
     "build:all": "for s in build build:min; do npm run $s; done",
-    "test": "mocha"
+    "test": "mocha",
+    "prepublishOnly": "npm test && npm run build:all"
   },
   "devDependencies": {
     "browserify": "^16.1.0",
