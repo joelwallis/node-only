@@ -1,6 +1,7 @@
 /*!
- * only
+ * @joelwallis/only
  * Copyright (c) 2012 TJ Holowaychuk <tj@vision-media.ca>
+ * Copyright (c) 2018 Joel Wallis Jucá <joelwallis@gmail.com>
  * MIT Licensed
  */
 
