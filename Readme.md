@@ -1,5 +1,7 @@
 # @joelwallis/only
 
+[![Build Status](https://travis-ci.org/joelwallis/only.svg?branch=master)](https://travis-ci.org/joelwallis/only)
+
 Return whitelisted properties of an object.
 
 ## Installation
