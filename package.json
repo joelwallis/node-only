@@ -1,6 +1,6 @@
 {
   "name": "@joelwallis/only",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Return whitelisted properties of an object",
   "author": "TJ Holowaychuk <tj@vision-media.ca>",
   "contributors": [
@@ -16,13 +16,22 @@
   ],
   "main": "index",
   "files": [
-    "index.js"
+    "index.js",
+    "only.js",
+    "only.min.js"
   ],
   "scripts": {
-    "test": "mocha"
+    "build": "browserify index.js -o only.js",
+    "build:min": "browserify -t uglifyify index.js | uglifyjs > only.min.js",
+    "build:all": "for s in build build:min; do npm run $s; done",
+    "test": "mocha",
+    "prepublishOnly": "npm test && npm run build:all"
   },
   "devDependencies": {
+    "browserify": "^16.1.0",
     "mocha": "^4.0.1",
-    "should": "^13.1.2"
+    "should": "^13.1.2",
+    "uglify-js": "^3.3.12",
+    "uglifyify": "^4.0.5"
   }
 }
