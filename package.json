@@ -21,8 +21,8 @@
     "only.min.js"
   ],
   "scripts": {
-    "build": "browserify index.js -o only.js",
-    "build:min": "browserify -t uglifyify index.js | uglifyjs > only.min.js",
+    "build": "browserify index.js -s only -o only.js",
+    "build:min": "browserify -t uglifyify -s only index.js | uglifyjs > only.min.js",
     "build:all": "for s in build build:min; do npm run $s; done",
     "test": "mocha",
     "prepublishOnly": "npm test && npm run build:all"
